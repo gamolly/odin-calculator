@@ -16,7 +16,7 @@ time, mark, audio, video {
 	border: 0;
 	font-size: 100%;
 	font: inherit;
-	vertical-align: baseline;
+	/* vertical-align: baseline; */
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -54,20 +54,28 @@ table {
 div.container{ 
 	display: grid;
     grid-template-columns: repeat(4,60px);
-	max-height: 30%;
+	max-height: fit-content;
 	max-width: 30%;
-    margin-top: 1rem;
-	border:0.1px dashed tomato;
+	border:1px solid black;
 }
 
-div.grid{
+button.grid{
    aspect-ratio: 1/1; 
    border: 0.5px solid black;
 }
 
 div.display{
-    border: 1px black solid;
-    width: 240px;
-    height: 30px;
+    border: 0.1px black solid;
+    width: 180px;
+    height: 60px;
+    grid-column:span 3/4;
+}
+
+button.clear {
+    aspect-ratio: 0.0;
+    border: 1px solid black;
+    background-color: rgb(48, 48, 94);
+    color: whitesmoke;
+    font-weight: 800;
 }
 
