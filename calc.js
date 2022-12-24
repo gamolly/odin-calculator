@@ -4,52 +4,52 @@ const display = document.getElementById('display');
 const displayContent = display.textContent;
 let displayValue;
 
-function add(a,b){
-    return a+b;
+function add(a, b) {
+    return a + b;
 }
 
-function subtrak(a,b){
-    return a-b;
+function subtrak(a, b) {
+    return a - b;
 }
 
-function mult(a,b){
-    return a*b;
+function mult(a, b) {
+    return a * b;
 }
 
-function divide(a,b){
-    return a/b;
+function divide(a, b) {
+    return a / b;
 }
 
-function operate(a,b,fun){
-    return fun(a,b);
+function operate(a, b, fun) {
+    return fun(a, b);
 }
 
-function updateDisplay(e){
-    // console.log(e.target.textContent);
-    if(validKeys.includes(e.key)){
-        if(display.textContent == '0'){
+function updateDisplay(e) {
+
+    let val;
+    if (e instanceof KeyboardEvent) {
+        val = e.key;
+    } else val = e.target.textContent;
+
+    //can  make an early return if !validKeys.includes(val)
+    if (validKeys.includes(val)) {
+        if (display.textContent == '0') {
             display.textContent = '';
         }
-
-        display.textContent += e.key;
-        console.log(e.key)
+        display.textContent += val;
+        console.log(val)
     }
-    if(e.key == 'Backspace' & display.textContent.length != 0){
-       display.textContent = display.textContent.slice(0,-1);
+    if (val == 'Backspace' & display.textContent.length != 0) {
+        display.textContent = display.textContent.slice(0, -1);
     }
-    
 }
-
 
 window.addEventListener('keydown', updateDisplay);
-function nameValue(e) {
-    console.log((e.target.textContent))
-}
+
 
 calcButtons = Array.from(document.querySelectorAll('button.grid'));
-// calcButtons.forEach(button => button.addEventListener('onclick', (e) => console.log(e.target.value)));
 
-calcButtons.forEach(button => button.addEventListener('click', nameValue))
+calcButtons.forEach(button => button.addEventListener('click', updateDisplay))
 
 
 // display = 123
@@ -65,4 +65,3 @@ calcButtons.forEach(button => button.addEventListener('click', nameValue))
 //  >> a = result 
 //  >> add result of numbers to display 
 //  >> equals pressed? repeat as above
- 
