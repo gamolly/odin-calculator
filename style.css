@@ -64,15 +64,17 @@ button.grid{
    border: 0.5px solid black;
 }
 
-div.display{
+div#display{
     border: 0.1px black solid;
     width: 180px;
     height: 60px;
     grid-column:span 3/4;
+    padding: 0 2px;
+    overflow: auto;
 }
 
 button.clear {
-    aspect-ratio: 0.0;
+    aspect-ratio: auto;
     border: 1px solid black;
     background-color: rgb(48, 48, 94);
     color: whitesmoke;
